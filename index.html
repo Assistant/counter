@@ -9,6 +9,11 @@
         crossorigin="anonymous"></script>
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
     <style>
+        :root {
+            --main-color: #9146FF;
+            --main-bg-color: white;
+        }
+
         html {
             background-color: transparent;
         }
@@ -20,24 +25,24 @@
         }
 
         progress::-webkit-progress-bar {
-            background-color: white;
+            background-color: var(--main-bg-color);
             width: 100%;
         }
 
         progress {
-            background-color: white;
+            background-color: var(--main-bg-color);
         }
 
         progress::-webkit-progress-value {
-            background-color: #9146FF !important;
+            background-color: var(--main-color) !important;
         }
 
         progress::-moz-progress-bar {
-            background-color: #9146FF !important;
+            background-color: var(--main-color) !important;
         }
 
         progress {
-            color: #9146FF;
+            color: var(--main-color);
         }
 
 
