@@ -12,6 +12,7 @@
         :root {
             --main-color: rgb(255 142 142);
             --main-bg-color: white;
+            --radius: 1rem;
         }
 
         html {
@@ -19,14 +20,14 @@
         }
 
         * {
-            /*     padding: 0; */
-            /*     margin: 0; */
             box-sizing: border-box;
         }
 
         progress::-webkit-progress-bar {
             background-color: var(--main-bg-color);
             width: 100%;
+            border-radius: var(--radius);
+            overflow: hidden;
         }
 
         progress {
@@ -70,7 +71,7 @@
             border-width: 2px;
             border-color: black;
             border-style: solid;
-            border-radius: 1rem;
+            border-radius: var(--radius);
         }
 
         #counter {
@@ -78,7 +79,7 @@
         }
 
         progress {
-            border-radius: 1rem;
+            border-radius: var(--radius);
             height: inherit;
             width: inherit;
             border: 0;
