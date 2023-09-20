@@ -10,7 +10,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
     <style>
         :root {
-            --main-color: #9146FF;
+            --main-color: rgb(255 142 142);
             --main-bg-color: white;
         }
 
@@ -52,9 +52,13 @@
             margin: 0.25rem;
         }
 
+        img {
+            height: 50%;
+        }
+
         #parent {
             height: 4rem;
-            width: 28rem;
+            width: 33rem;
             overflow: hidden;
             font-family: 'Open Sans';
             font-size: 18px;
@@ -87,9 +91,10 @@
 <body>
     <div id="parent">
         <progress id="progress" value="0"></progress>
-        <img alt="More Bobs ⚫➖⚫" src="https://static.twitchcdn.net/assets/follow-c7d174e9553cfc22fa72.svg">
+        <img alt="YouTube Logo"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2775px-YouTube_full-color_icon_%282017%29.svg.png">
         <div>
-            More Bobs ⚫➖⚫
+            Road to YouTube Partner!
         </div>
         <div>
             <span id="counter" hx-get="/count" hx-trigger="load, every 60s" hx-on="htmx:afterSwap: update()"></span>
