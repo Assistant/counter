@@ -20,6 +20,7 @@ Bun.serve({
         count = new_count
         const url = new URL(req.url);
         if (url.pathname === "/") return new Response(Bun.file('./index.html'));
+        if (url.pathname === "/style.css") return new Response(Bun.file('./style.css'));
         return new Response(`${count}`);
     },
 });
