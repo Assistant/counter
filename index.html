@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/htmx.org@1.9.5"
+        integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO"
+        crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <style>
+        html {
+            background-color: transparent;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        progress::-webkit-progress-bar {
+            background-color: white;
+            width: 100%;
+        }
+
+        progress {
+            background-color: white;
+        }
+
+        progress::-webkit-progress-value {
+            background-color: #9146FF !important;
+        }
+
+        progress::-moz-progress-bar {
+            background-color: #9146FF !important;
+        }
+
+        progress {
+            color: #9146FF;
+        }
+
+
+        #parent div,
+        #parent img,
+        #parent span {
+            margin: 0.25rem;
+        }
+
+        #parent {
+            height: 4rem;
+            width: 28rem;
+            overflow: hidden;
+            font-family: 'Open Sans';
+            font-size: 18px;
+
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            border-width: 0 2px 2px 2px;
+            border-color: black;
+            border-style: solid;
+            border-radius: 0 0 1rem 1rem;
+        }
+
+        #counter {
+            font-weight: bold;
+        }
+
+        progress {
+            border-radius: 0 0 1rem 1rem;
+            height: inherit;
+            width: inherit;
+            border: 0;
+            position: fixed;
+            z-index: -5;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent">
+        <progress id="progress" value="0"></progress>
+        <img alt="More Bobs ⚫➖⚫" src="https://static.twitchcdn.net/assets/follow-c7d174e9553cfc22fa72.svg">
+        <div>
+            More Bobs ⚫➖⚫
+        </div>
+        <div>
+            <span id="counter" hx-get="/count" hx-trigger="load, every 60s" hx-on="htmx:afterSwap: update()"></span>
+            /
+            <span id="goal"></span>
+            Subscribers
+        </div>
+    </div>
+    <script>
+        const goal_value = "1000"
+
+        const progress = document.getElementById('progress')
+        const goal = document.getElementById('goal')
+        const counter = document.getElementById('counter')
+        const update = () => progress.value = counter.innerText
+
+        progress.max = goal.innerText = goal_value
+    </script>
+</body>
+
+</html>
